@@ -24,20 +24,43 @@ constructor     - should require the student name, studentNumber and grade (in t
 
 class student:
 
-    # properties should be listed first
+    name = ""
+    studentNumber = ""
+    grade = ""
+    courses = []
+    grades = []
 
-    def __init__(): # You will need to create your own input parameters for all methods
-        pass
 
-    def __del__():
-        pass
+
+    def __init__(self, name, studentNumber, grade): # You will need to create your own input parameters for all methods
+        self.name = name
+        self.studentNumber = studentNumber
+        self.grade = grade
+
+
+    def getCourses(self, courses):
+        self.courses = courses
+
+    def getGrades(self, grades1):
+        self.grades = grades1
 
     def average(self):
-        pass
+        classes = len(self.grades)
+        average = sum(self.grades) / classes
+        return average
+
+    def getHonorRoll(self):
+        self.grades.sort(reverse = True)
+        average = self.grades[0] + self.grades[1] + self.grades[2] + self.grades[3] + self.grades[4] / 5
+        if average >= 86:
+            return True
+
 
 def main():
     # This contains test data that will be used by the autograder.
-    # do not modify this function
+    # do not mowwwwdify this function
+
+
 
     st1 = student("Anita Bath","91334",11)
     st1.getCourses( ["English","Math","PE","Computers","History","Biology","Japanese"] )
